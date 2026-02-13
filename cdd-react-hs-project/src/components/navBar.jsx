@@ -1,5 +1,5 @@
 import React from 'react';
-import './navBar.css';
+import '../styles/navBar.css';
 
 const NavBar = () => {
   // Variables internas en camelCase según la orden
