@@ -4,12 +4,10 @@ import '../../styles/whyUs.css';
 
 const WhyUs = () => {
   return (
-    <section id="por-que-nosotros" className="why-us-section">
+    <section id="nosotros" className="why-us-section">
       <div className="why-us-container">
-        
-        {/* LADO IZQUIERDO: IMAGEN CON GLOW */}
         <div className="why-us-image-side">
-          <div className="glow-effect"></div> {/* El resplandor menta */}
+          <div className="glow-effect"></div> 
           <img 
             src="./public/why-us-img.png" 
             alt="Entrenamiento profesional" 
@@ -17,7 +15,6 @@ const WhyUs = () => {
           />
         </div>
 
-        {/* LADO DERECHO: TEXTO */}
         <div className="why-us-text-side">
           <h2 className="why-us-title">
             Entrena con los <span className="highlight-menta">Mejores</span> del mundo fitness
@@ -27,11 +24,10 @@ const WhyUs = () => {
             metodología probada para transformar tu vida. Contamos con expertos 
             certificados y tecnología de punta para monitorear tu progreso.
           </p>
-          <button className="btn-hero" onClick={() => document.getElementById('registro').scrollIntoView({ behavior: 'smooth' })}>
+          <button className="btn-hero" onClick={() => document.getElementById('inicio').scrollIntoView({ behavior: 'smooth' })}>
             Únetenos
           </button>
         </div>
-
       </div>
     </section>
   );
