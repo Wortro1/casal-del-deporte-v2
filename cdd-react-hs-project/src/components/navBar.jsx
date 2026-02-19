@@ -2,7 +2,6 @@ import React from 'react';
 import '../styles/navBar.css';
 
 const NavBar = () => {
-  // Variables internas en camelCase según la orden
   const navLinks = [
     { name: 'Inicio', path: '#inicio' },
     { name: 'Servicios', path: '#servicios' },
