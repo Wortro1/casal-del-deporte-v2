@@ -42,6 +42,33 @@
   color: #45ffca;
 }
 
+.navBarActions {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.btnLoginNav {
+  background: transparent;
+  color: #45ffca;
+  border: 1.5px solid #45ffca;
+  padding: 0.6rem 1.5rem;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+}
+
+.btnLoginNav:hover {
+  background-color: #45ffca;
+  color: #000000;
+  box-shadow: 0 0 15px rgba(69, 255, 202, 0.4);
+}
+
 .btnRegisterNav {
   background: transparent;
   color: #45ffca;
@@ -52,6 +79,9 @@
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
 }
 
 .btnRegisterNav:hover {

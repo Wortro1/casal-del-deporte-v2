@@ -1,0 +1,675 @@
+/* =============================================
+   SELECT TRAINING PAGE
+   ============================================= */
+.select-training-container {
+  min-height: 100vh;
+  background-color: #000000;
+  display: flex;
+  flex-direction: column;
+}
+
+/* NAVBAR DE USUARIO */
+.user-navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem 5%;
+  background-color: #000000;
+  border-bottom: 1px solid #1a1a1a;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.navbar-brand {
+  font-size: 1.6rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  color: #ffffff;
+}
+
+.brand-highlight {
+  color: #45ffca;
+}
+
+.navbar-actions-booking {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.btn-home-booking {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.7rem 1.5rem;
+  background: transparent;
+  border: 1.5px solid rgba(69, 255, 202, 0.5);
+  color: #45ffca;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-home-booking:hover {
+  border-color: #45ffca;
+  background: rgba(69, 255, 202, 0.1);
+}
+
+.btn-logout {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.7rem 1.5rem;
+  background: transparent;
+  border: 1.5px solid #45ffca;
+  color: #45ffca;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-logout:hover {
+  background: #45ffca;
+  color: #000000;
+  box-shadow: 0 0 15px rgba(69, 255, 202, 0.4);
+}
+
+/* CONTENIDO PRINCIPAL */
+.training-content {
+  flex: 1;
+  padding: 3rem 5%;
+  max-width: 1400px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.training-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.training-title {
+  margin: 0 0 0.75rem 0;
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: #ffffff;
+}
+
+.training-subtitle {
+  margin: 0;
+  font-size: 1.1rem;
+  color: #9ca3af;
+}
+
+/* GRID DE TARJETAS */
+.trainings-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  animation: fadeInUp 0.6s ease-out;
+}
+
+@media (max-width: 1200px) {
+  .trainings-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .trainings-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* TRAINING CARD */
+.training-card {
+  background: rgba(15, 15, 20, 0.7);
+  border: 2px solid rgba(69, 255, 202, 0.3);
+  border-radius: 12px;
+  padding: 2rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.training-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(69, 255, 202, 0.1) 0%, transparent 70%);
+  transition: all 0.3s ease;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.training-card:hover {
+  border-color: #45ffca;
+  background: rgba(15, 15, 20, 0.95);
+  box-shadow: 0 0 30px rgba(69, 255, 202, 0.3),
+              0 0 60px rgba(69, 255, 202, 0.1);
+  transform: translateY(-5px) scale(1.02);
+}
+
+.training-card:hover::before {
+  opacity: 1;
+}
+
+.card-icon-wrapper {
+  margin-bottom: 1.5rem;
+}
+
+.card-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto;
+  border: 2px solid;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  background: rgba(69, 255, 202, 0.05);
+}
+
+.training-card:hover .card-icon {
+  transform: scale(1.15) rotate(5deg);
+  background: rgba(69, 255, 202, 0.1);
+}
+
+.card-title {
+  margin: 0 0 0.75rem 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.card-description {
+  margin: 0 0 1.5rem 0;
+  font-size: 0.95rem;
+  color: #9ca3af;
+  line-height: 1.6;
+  min-height: 60px;
+}
+
+.card-select-btn {
+  padding: 0.8rem 1.5rem;
+  background: transparent;
+  border: 2px solid;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  width: 100%;
+  position: relative;
+  z-index: 10;
+}
+
+.card-select-btn:hover {
+  background: currentColor;
+  color: #000000;
+  box-shadow: 0 0 20px currentColor;
+  transform: translateY(-2px);
+}
+
+/* FOOTER */
+.training-footer {
+  text-align: center;
+  padding: 2rem 5%;
+  color: #666666;
+  font-size: 0.85rem;
+  border-top: 1px solid #1a1a1a;
+  margin-top: auto;
+}
+
+.training-footer p {
+  margin: 0;
+}
+
+/* =============================================
+   BOOKING CALENDAR PAGE
+   ============================================= */
+.booking-container-full {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #000000 0%, #0a0e27 100%);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.booking-container-full::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image:
+    linear-gradient(0deg, transparent 24%, rgba(69, 255, 202, 0.05) 25%, rgba(69, 255, 202, 0.05) 26%, transparent 27%, transparent 74%, rgba(69, 255, 202, 0.05) 75%, rgba(69, 255, 202, 0.05) 76%, transparent 77%, transparent),
+    linear-gradient(90deg, transparent 24%, rgba(69, 255, 202, 0.05) 25%, rgba(69, 255, 202, 0.05) 26%, transparent 27%, transparent 74%, rgba(69, 255, 202, 0.05) 75%, rgba(69, 255, 202, 0.05) 76%, transparent 77%, transparent);
+  background-size: 50px 50px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.booking-container-full > * {
+  position: relative;
+  z-index: 1;
+}
+
+.booking-container {
+  min-height: 100vh;
+  background-color: #000000;
+  padding: 2rem 5%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.booking-header {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 1rem;
+}
+
+.booking-header-with-logout {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  gap: 1rem;
+}
+
+.btn-back-booking {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1rem;
+  background: transparent;
+  border: 1px solid rgba(69, 255, 202, 0.3);
+  color: #45ffca;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.btn-logout-booking {
+  padding: 0.75rem 1.5rem;
+  background: rgba(255, 107, 107, 0.15);
+  color: #ff6b6b;
+  border: 1px solid #ff6b6b;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-logout-booking:hover {
+  background: rgba(255, 107, 107, 0.25);
+  transform: translateY(-2px);
+  box-shadow: 0 0 20px rgba(255, 107, 107, 0.3);
+}
+
+.btn-back-booking:hover {
+  border-color: #45ffca;
+  background: rgba(69, 255, 202, 0.1);
+}
+
+.booking-title {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: 800;
+  color: #ffffff;
+}
+
+/* CONTENIDO DE BOOKING (2 COLUMNAS) */
+.booking-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  margin-bottom: 2rem;
+}
+
+@media (max-width: 1024px) {
+  .booking-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+.booking-column {
+  background: rgba(15, 15, 20, 0.7);
+  border: 2px solid rgba(69, 255, 202, 0.3);
+  border-radius: 12px;
+  padding: 2rem;
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.column-title {
+  margin: 0 0 1.5rem 0;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: #45ffca;
+}
+
+/* LISTA DE FECHAS */
+.dates-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  max-height: 500px;
+  overflow-y: auto;
+  padding-right: 0.5rem;
+}
+
+.dates-list::-webkit-scrollbar {
+  width: 8px;
+}
+
+.dates-list::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
+}
+
+.dates-list::-webkit-scrollbar-thumb {
+  background: rgba(69, 255, 202, 0.3);
+  border-radius: 4px;
+}
+
+.dates-list::-webkit-scrollbar-thumb:hover {
+  background: rgba(69, 255, 202, 0.5);
+}
+
+.date-btn {
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1.5px solid rgba(69, 255, 202, 0.2);
+  border-radius: 8px;
+  color: #ffffff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-align: left;
+}
+
+.date-btn:hover {
+  background: rgba(69, 255, 202, 0.1);
+  border-color: rgba(69, 255, 202, 0.4);
+}
+
+.date-btn.selected {
+  background: rgba(69, 255, 202, 0.15);
+  border-color: #45ffca;
+  box-shadow: 0 0 15px rgba(69, 255, 202, 0.2);
+}
+
+.date-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.date-day {
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-transform: capitalize;
+}
+
+.date-value {
+  font-size: 0.85rem;
+  color: #9ca3af;
+  text-transform: capitalize;
+}
+
+/* GRID DE HORAS */
+.times-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+}
+
+.time-btn {
+  padding: 0.95rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1.5px solid rgba(69, 255, 202, 0.2);
+  border-radius: 8px;
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.time-btn:hover:not(.disabled) {
+  background: rgba(69, 255, 202, 0.1);
+  border-color: rgba(69, 255, 202, 0.4);
+}
+
+.time-btn.selected {
+  background: currentColor;
+  color: #000000;
+  box-shadow: 0 0 15px currentColor;
+}
+
+.time-btn.disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+/* RESUMEN DE RESERVA */
+.booking-summary {
+  background: rgba(15, 15, 20, 0.95);
+  border: 2px solid #45ffca;
+  border-radius: 12px;
+  padding: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  animation: slideInUp 0.5s ease-out;
+  box-shadow: 0 0 30px rgba(69, 255, 202, 0.2);
+}
+
+@media (max-width: 768px) {
+  .booking-summary {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+}
+
+.summary-content {
+  flex: 1;
+}
+
+.summary-title {
+  margin: 0 0 1rem 0;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #45ffca;
+}
+
+.summary-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.summary-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid rgba(69, 255, 202, 0.2);
+}
+
+.summary-item:last-child {
+  border-bottom: none;
+}
+
+.summary-label {
+  font-size: 0.95rem;
+  color: #9ca3af;
+  font-weight: 600;
+}
+
+.summary-value {
+  font-size: 0.95rem;
+  color: #ffffff;
+  font-weight: 700;
+  text-transform: capitalize;
+}
+
+.btn-confirm-booking {
+  padding: 0.95rem 2rem;
+  border: 2px solid;
+  border-radius: 8px;
+  color: #000000;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+
+.btn-confirm-booking:hover {
+  box-shadow: 0 0 25px currentColor;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .btn-confirm-booking {
+    width: 100%;
+  }
+}
+
+/* =============================================
+   ANIMACIONES
+   ============================================= */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =============================================
+   RESPONSIVE
+   ============================================= */
+@media (max-width: 768px) {
+  .select-training-container {
+    padding: 0;
+  }
+
+  .training-content {
+    padding: 2rem 1.5rem;
+  }
+
+  .training-title {
+    font-size: 1.8rem;
+  }
+
+  .training-subtitle {
+    font-size: 1rem;
+  }
+
+  .training-card {
+    padding: 1.5rem;
+  }
+
+  .booking-container {
+    padding: 1.5rem;
+  }
+
+  .booking-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .booking-title {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .user-navbar {
+    padding: 1rem;
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+
+  .navbar-brand {
+    font-size: 1.3rem;
+  }
+
+  .btn-logout {
+    width: 100%;
+    justify-content: center;
+    font-size: 0.85rem;
+  }
+
+  .training-content {
+    padding: 1.5rem;
+  }
+
+  .training-title {
+    font-size: 1.5rem;
+  }
+
+  .trainings-grid {
+    gap: 1.5rem;
+  }
+
+  .times-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .booking-summary {
+    padding: 1.5rem;
+  }
+}
