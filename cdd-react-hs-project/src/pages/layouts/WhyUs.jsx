@@ -6,10 +6,8 @@ const WhyUs = () => {
   return (
     <section id="nosotros" className="why-us-section">
       <div className="why-us-container">
-        
-        {/* LADO IZQUIERDO: IMAGEN CON GLOW */}
         <div className="why-us-image-side">
-          <div className="glow-effect"></div> {/* El resplandor menta */}
+          <div className="glow-effect"></div> 
           <img 
             src="/why-us-img.png" 
             alt="Entrenamiento profesional" 
@@ -17,7 +15,6 @@ const WhyUs = () => {
           />
         </div>
 
-        {/* LADO DERECHO: TEXTO */}
         <div className="why-us-text-side">
           <h2 className="why-us-title">
             Entrena con los <span className="highlight-menta">Mejores</span> del mundo fitness
@@ -28,7 +25,6 @@ const WhyUs = () => {
             certificados y tecnología de punta para monitorear tu progreso.
           </p>
         </div>
-
       </div>
     </section>
   );

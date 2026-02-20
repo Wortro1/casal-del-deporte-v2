@@ -1,17 +1,13 @@
 import React from 'react';
 import { motion } from 'motion/react';
-// Importamos los estilos subiendo un nivel (../) hacia la carpeta styles
 import '../../styles/Hero.css'; 
 
 const Hero = () => {
   return (
     <section id="inicio" className="hero-section">
-      
-      {/* --- FONDO ANIMADO --- */}
       <div className="hero-bg-text-container">
         <motion.h2 
           className="hero-bg-text"
-          // Animación: Se mueve de izquierda (-100%) a derecha (100%)
           animate={{ x: ['-100%', '100%'] }} 
           transition={{ 
             duration: 10, 
@@ -23,10 +19,7 @@ const Hero = () => {
         </motion.h2>
       </div>
 
-      {/* --- CONTENIDO PRINCIPAL --- */}
       <div className="hero-container">
-        
-        {/* Columna Izquierda: Textos */}
         <div className="hero-text-content">
           <h1 className="hero-title">
             Construye el Físico <br /> de tus sueños
@@ -40,17 +33,14 @@ const Hero = () => {
           </p>
         </div>
 
-        {/* Columna Derecha: Imagen */}
         <div className="hero-image-wrapper">
           <img 
              src="/portada-gym.png" 
              alt="Bodybuilder entrenando" 
              className="hero-img"
           />
-          {/* Capa oscura para que la imagen se integre con el fondo */}
           <div className="hero-overlay"></div> 
         </div>
-
       </div>
     </section>
   );
