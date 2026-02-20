@@ -31,14 +31,11 @@ const Hero = () => {
             Entrena con los mejores profesionales en instalaciones de primera clase. 
             Tu transformación empieza hoy mismo.
           </p>
-          <button className="btn-hero">
-            Únetenos
-          </button>
         </div>
 
         <div className="hero-image-wrapper">
           <img 
-             src="./public/portada-gym.png" 
+             src="/portada-gym.png" 
              alt="Bodybuilder entrenando" 
              className="hero-img"
           />
