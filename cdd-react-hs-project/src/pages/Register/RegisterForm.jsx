@@ -12,6 +12,7 @@ const RegisterForm = () => {
     // Sección 1: Datos Personales
     document: '',
     fullName: '',
+    lastName: '',
     phone: '',
     birthDate: '',
     // Sección 2: Perfil Deportivo
@@ -52,6 +53,9 @@ const RegisterForm = () => {
     }
     if (!formData.fullName.trim()) {
       newErrors.fullName = 'El nombre completo es requerido';
+    }
+    if (!formData.lastName.trim()) {
+      newErrors.lastName = 'El apellido es requerido';
     }
     if (!formData.phone.trim()) {
       newErrors.phone = 'El teléfono es requerido';
@@ -148,19 +152,36 @@ const RegisterForm = () => {
 
               <div className="form-group">
                 <label htmlFor="fullName" className="form-label">
-                  Nombre Completo *
+                  Nombre *
                 </label>
                 <input
                   type="text"
                   id="fullName"
                   name="fullName"
                   className={`form-input ${errors.fullName ? 'error' : ''}`}
-                  placeholder="Ej: Juan García"
+                  placeholder="Ej: Juan"
                   value={formData.fullName}
                   onChange={handleInputChange}
                   disabled={isLoading}
                 />
                 {errors.fullName && <span className="error-text">{errors.fullName}</span>}
+              </div>
+
+              <div className="form-group">
+                <label htmlFor="lastName" className="form-label">
+                  Apellido *
+                </label>
+                <input
+                  type="text"
+                  id="lastName"
+                  name="lastName"
+                  className={`form-input ${errors.lastName ? 'error' : ''}`}
+                  placeholder="Ej: García"
+                  value={formData.lastName}
+                  onChange={handleInputChange}
+                  disabled={isLoading}
+                />
+                {errors.lastName && <span className="error-text">{errors.lastName}</span>}
               </div>
 
               <div className="form-group">

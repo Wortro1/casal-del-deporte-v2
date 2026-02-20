@@ -58,7 +58,6 @@ const UsersTable = () => {
   if (loading) {
     return (
       <div className="admin-section">
-        <h2 className="section-title">Gestión de Usuarios</h2>
         <p style={{ color: '#9ca3af', textAlign: 'center' }}>Cargando usuarios...</p>
       </div>
     );
@@ -71,16 +70,21 @@ const UsersTable = () => {
       animate={{ opacity: 1, y: 0 }}
     >
       <div className="section-header">
-        <h2 className="section-title">Gestión de Usuarios</h2>
-        <div className="search-box">
-          <Search size={18} />
-          <input
-            type="text"
-            placeholder="Buscar por nombre, documento o teléfono..."
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-          />
-        </div>
+        <h2 className="section-title">Usuarios</h2>
+        <button className="btn-new-user">
+          <UserPlus size={18} />
+          Nuevo Usuario
+        </button>
+      </div>
+
+      <div className="search-box">
+        <Search size={18} />
+        <input
+          type="text"
+          placeholder="Buscar por nombre o documento..."
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+        />
       </div>
 
       {error && <p style={{ color: '#ff6b6b', textAlign: 'center' }}>{error}</p>}
@@ -136,6 +140,21 @@ const UsersTable = () => {
         {filteredUsers.length === 0 && (
           <p className="no-results">No se encontraron usuarios</p>
         )}
+      </div>
+
+      <div className="stats-grid">
+        <div className="stat-card">
+          <p className="stat-label">Total Usuarios</p>
+          <p className="stat-value">{users.length}</p>
+        </div>
+        <div className="stat-card">
+          <p className="stat-label">Practican Musculación</p>
+          <p className="stat-value">{users.filter(u => u.haciendoMusculacion).length}</p>
+        </div>
+        <div className="stat-card">
+          <p className="stat-label">Deportistas Activos</p>
+          <p className="stat-value">{users.filter(u => u.esDeportistaActivo).length}</p>
+        </div>
       </div>
     </motion.div>
   );

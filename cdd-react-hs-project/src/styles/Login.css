@@ -56,9 +56,57 @@
 
 /* Variante para admin */
 .login-card.admin-card {
-  border-color: #ff6b6b;
-  box-shadow: 0 0 30px rgba(255, 107, 107, 0.1),
-              0 0 60px rgba(255, 107, 107, 0.05);
+  border-color: #45ffca;
+  box-shadow: 0 0 30px rgba(69, 255, 202, 0.1),
+              0 0 60px rgba(69, 255, 202, 0.05);
+}
+
+/* =============================================
+   ADMIN LOGIN STYLES
+   ============================================= */
+.admin-main-title {
+  font-size: 2.2rem;
+  font-weight: 900;
+  color: #ffffff;
+  text-align: center;
+  margin: 0 0 0.5rem 0;
+  letter-spacing: -0.5px;
+}
+
+.admin-main-title .title-highlight {
+  color: #45ffca;
+}
+
+.admin-access-label {
+  text-align: center;
+  font-size: 1rem;
+  color: #cccccc;
+  margin: 0 0 0.5rem 0;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.admin-access-label::before {
+  content: "🛡️";
+  display: inline-block;
+}
+
+.admin-subtitle {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #999999;
+  margin: 0 0 2rem 0;
+}
+
+.admin-login-footer {
+  text-align: center;
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
 }
 
 /* =============================================
@@ -150,17 +198,23 @@
   color: #ffffff;
 }
 
-.label-icon {
-  color: #45ffca;
-  font-size: 1rem;
+.input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
 }
 
-.login-card.admin-card .label-icon {
-  color: #ff6b6b;
+.input-icon {
+  position: absolute;
+  right: 0.75rem;
+  color: #45ffca;
+  font-size: 1rem;
+  pointer-events: none;
 }
 
 .form-input {
-  padding: 0.85rem 1rem;
+  width: 100%;
+  padding: 0.85rem 2.5rem 0.85rem 1rem;
   background: rgba(255, 255, 255, 0.05);
   border: 1.5px solid rgba(69, 255, 202, 0.3);
   border-radius: 8px;
@@ -242,17 +296,42 @@
   transform: translateY(0);
 }
 
-/* Variante para admin */
-.btn-ingresar.admin-btn {
-  border-color: #ff6b6b;
-  color: #ff6b6b;
+.login-btn {
+  padding: 0.95rem 1.5rem;
+  background: transparent;
+  border: 2px solid #45ffca;
+  color: #45ffca;
+  font-size: 1rem;
+  font-weight: 700;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
 }
 
-.btn-ingresar.admin-btn:hover {
-  background: #ff6b6b;
+.login-btn:hover {
+  background: #45ffca;
   color: #000000;
-  box-shadow: 0 0 20px rgba(255, 107, 107, 0.6),
-              0 0 40px rgba(255, 107, 107, 0.3);
+  box-shadow: 0 0 20px rgba(69, 255, 202, 0.6),
+              0 0 40px rgba(69, 255, 202, 0.3);
+  transform: translateY(-2px);
+}
+
+.login-btn:active {
+  transform: translateY(0);
+}
+
+/* Variante para admin */
+.login-btn.admin-btn {
+  border-color: #45ffca;
+  color: #45ffca;
+}
+
+.login-btn.admin-btn:hover {
+  background: #45ffca;
+  color: #000000;
+  box-shadow: 0 0 20px rgba(69, 255, 202, 0.6),
+              0 0 40px rgba(69, 255, 202, 0.3);
 }
 
 .btn-volver {
@@ -290,6 +369,26 @@
 
 .login-footer.admin-footer {
   display: none;
+}
+
+.link-btn {
+  background: none;
+  border: none;
+  color: #999999;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  padding: 0;
+  font-weight: 500;
+}
+
+.link-btn:hover {
+  color: #45ffca;
+}
+
+.admin-login-footer .link-btn:hover {
+  color: #45ffca;
 }
 
 .register-link {

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { FaShieldAlt, FaIdCard } from 'react-icons/fa';
+import { FaIdCard } from 'react-icons/fa';
 import { useAuth } from '../../context/AuthContext';
 import '../../styles/Login.css';
 
@@ -44,14 +44,10 @@ const LoginAdmin = () => {
   return (
     <div className="login-container">
       <div className="login-card admin-login-card">
-        {/* Logo / Icono */}
-        <div className="login-icon admin-icon">
-          <FaShieldAlt size={48} />
-        </div>
-
         {/* Título */}
-        <h2 className="login-title">Panel Administrativo</h2>
-        <p className="login-subtitle">Ingresa tu documento de identidad</p>
+        <h1 className="admin-main-title">Casa del <span className="title-highlight">Deporte</span></h1>
+        <p className="admin-access-label">Acceso de Administrador</p>
+        <p className="admin-subtitle">Inicia sesión para continuar</p>
 
         {/* Formulario */}
         <form onSubmit={handleSubmit} className="login-form">
@@ -94,13 +90,16 @@ const LoginAdmin = () => {
                 <span>Verificando...</span>
               </div>
             ) : (
-              'Acceder al Panel'
+              'Ingresar'
             )}
           </button>
         </form>
 
         {/* Link de retorno */}
-        <div className="login-footer">
+        <div className="admin-login-footer">
+          <p className="user-link">
+            ¿Eres usuario? <a href="/login/usuario">Inicia sesión aquí</a>
+          </p>
           <button
             className="link-btn"
             onClick={() => navigate('/')}
