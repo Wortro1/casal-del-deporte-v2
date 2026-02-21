@@ -141,38 +141,66 @@
 
 .form-input {
   padding: 0.85rem 1rem;
-  background: rgba(255, 255, 255, 0.05);
+  background-color: rgba(31, 41, 55, 0.6);
   border: 1.5px solid rgba(69, 255, 202, 0.3);
   border-radius: 8px;
   color: #ffffff;
   font-size: 0.95rem;
   transition: all 0.3s ease;
   font-family: inherit;
+  font-weight: 500;
+  box-sizing: border-box;
 }
 
 .form-input::placeholder {
-  color: #666666;
+  color: #9ca3af;
+  opacity: 0.8;
+}
+
+.form-input:hover {
+  border-color: rgba(69, 255, 202, 0.5);
 }
 
 .form-input:focus {
   outline: none;
-  background: rgba(255, 255, 255, 0.08);
+  background-color: rgba(31, 41, 55, 0.95);
   border-color: #45ffca;
-  box-shadow: 0 0 10px rgba(69, 255, 202, 0.2);
+  box-shadow: 0 0 15px rgba(69, 255, 202, 0.3), inset 0 0 10px rgba(69, 255, 202, 0.05);
+}
+
+.form-input:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  background-color: rgba(31, 41, 55, 0.4);
+  border-color: rgba(69, 255, 202, 0.15);
 }
 
 .form-input.error {
   border-color: #ff6b6b;
+  background-color: rgba(127, 29, 29, 0.2);
 }
 
 .form-input.error:focus {
-  box-shadow: 0 0 10px rgba(255, 107, 107, 0.2);
+  box-shadow: 0 0 15px rgba(255, 107, 107, 0.3), inset 0 0 10px rgba(255, 107, 107, 0.05);
 }
 
 .error-text {
   font-size: 0.85rem;
   color: #ff9999;
   margin-top: 0.25rem;
+}
+
+/* Input de fecha específico */
+input[type="date"],
+input[type="tel"],
+input[type="text"],
+input[type="email"] {
+  color-scheme: dark;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+  cursor: pointer;
 }
 
 /* =============================================

@@ -30,3 +30,8 @@ export const getAllUsuarios = async () => {
     const response = await api.get(`${BASE}/usuarios/todos`);
     return response.data;
 };
+
+export const createUsuarioExterno = async (usuarioExternoDTO) => {
+    const response = await api.post(`${BASE}/usuarios/crear`, usuarioExternoDTO);
+    return response.data;
+};

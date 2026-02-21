@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
-import { Search, Trash2, Edit, UserPlus } from 'lucide-react';
-import { getAllUsuarios } from '../../services/adminService';
+import { Search, Trash2, Edit, UserPlus, X } from 'lucide-react';
+import { getAllUsuarios, createUsuarioExterno } from '../../services/adminService';
 import { deleteUser } from '../../services/userService';
 import '../../styles/Admin.css';
 
@@ -10,6 +10,18 @@ const UsersTable = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [showModal, setShowModal] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [formData, setFormData] = useState({
+    nombre: '',
+    apellido: '',
+    telefono: '',
+    tipoDeDoc: 'CC',
+    documento: '',
+    fechaDeNacimiento: '',
+    haciendoMusculacion: false,
+    esDeportistaActivo: false,
+  });
 
   useEffect(() => {
     const fetchUsers = async () => {
@@ -55,6 +67,65 @@ const UsersTable = () => {
     }
   };
 
+  const handleInputChange = (e) => {
+    const { name, value, type, checked } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: type === 'checkbox' ? checked : value
+    }));
+  };
+
+  const handleCreateUser = async (e) => {
+    e.preventDefault();
+    if (!formData.nombre.trim() || !formData.apellido.trim()) {
+      alert('El nombre y apellido son requeridos');
+      return;
+    }
+    if (!formData.documento.trim()) {
+      alert('El número de documento es requerido');
+      return;
+    }
+
+    setSubmitting(true);
+    try {
+      // Asegurar que se envía el documento como id
+      const usuarioData = {
+        ...formData,
+        id: parseInt(formData.documento) || formData.documento
+      };
+      
+      const nuevoUsuario = await createUsuarioExterno(usuarioData);
+      setUsers([...users, {
+        id: nuevoUsuario.id,
+        nombre: nuevoUsuario.nombre,
+        apellido: nuevoUsuario.apellido,
+        fullName: `${nuevoUsuario.nombre} ${nuevoUsuario.apellido}`,
+        telefono: nuevoUsuario.telefono || '',
+        tipoDeDoc: nuevoUsuario.tipoDeDoc || 'CC',
+        fechaDeNacimiento: nuevoUsuario.fechaDeNacimiento || '',
+        haciendoMusculacion: nuevoUsuario.haciendoMusculacion || false,
+        esDeportistaActivo: nuevoUsuario.esDeportistaActivo || false,
+      }]);
+      setShowModal(false);
+      setFormData({
+        nombre: '',
+        apellido: '',
+        telefono: '',
+        tipoDeDoc: 'CC',
+        documento: '',
+        fechaDeNacimiento: '',
+        haciendoMusculacion: false,
+        esDeportistaActivo: false,
+      });
+      alert('Usuario creado exitosamente');
+    } catch (err) {
+      console.error('Error creando usuario:', err);
+      alert('Error al crear el usuario: ' + (err.response?.data?.message || err.message));
+    } finally {
+      setSubmitting(false);
+    }
+  };
+
   if (loading) {
     return (
       <div className="admin-section">
@@ -71,7 +142,7 @@ const UsersTable = () => {
     >
       <div className="section-header">
         <h2 className="section-title">Usuarios</h2>
-        <button className="btn-new-user">
+        <button className="btn-new-user" onClick={() => setShowModal(true)}>
           <UserPlus size={18} />
           Nuevo Usuario
         </button>
@@ -156,6 +227,145 @@ const UsersTable = () => {
           <p className="stat-value">{users.filter(u => u.esDeportistaActivo).length}</p>
         </div>
       </div>
+
+      {showModal && (
+        <div className="modal-overlay" onClick={() => setShowModal(false)}>
+          <motion.div
+            className="modal-content"
+            onClick={(e) => e.stopPropagation()}
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+          >
+            <div className="modal-header">
+              <h3>Crear Nuevo Usuario</h3>
+              <button
+                className="btn-close"
+                onClick={() => setShowModal(false)}
+              >
+                <X size={20} />
+              </button>
+            </div>
+
+            <form onSubmit={handleCreateUser} className="modal-form">
+              <div className="form-row">
+                <div className="form-group">
+                  <label>Nombre *</label>
+                  <input
+                    type="text"
+                    name="nombre"
+                    value={formData.nombre}
+                    onChange={handleInputChange}
+                    placeholder="Nombre del usuario"
+                    required
+                  />
+                </div>
+                <div className="form-group">
+                  <label>Apellido *</label>
+                  <input
+                    type="text"
+                    name="apellido"
+                    value={formData.apellido}
+                    onChange={handleInputChange}
+                    placeholder="Apellido del usuario"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div className="form-row">
+                <div className="form-group">
+                  <label>Tipo de Documento</label>
+                  <select
+                    name="tipoDeDoc"
+                    value={formData.tipoDeDoc}
+                    onChange={handleInputChange}
+                  >
+                    <option value="CC">Cédula de Ciudadanía</option>
+                    <option value="CE">Cédula de Extranjería</option>
+                    <option value="PA">Pasaporte</option>
+                    <option value="DNI">DNI</option>
+                  </select>
+                </div>
+                <div className="form-group">
+                  <label>Número de Documento *</label>
+                  <input
+                    type="text"
+                    name="documento"
+                    value={formData.documento}
+                    onChange={handleInputChange}
+                    placeholder="Número de documento"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div className="form-row">
+                <div className="form-group">
+                  <label>Teléfono</label>
+                  <input
+                    type="tel"
+                    name="telefono"
+                    value={formData.telefono}
+                    onChange={handleInputChange}
+                    placeholder="Número de teléfono"
+                  />
+                </div>
+                <div className="form-group">
+                  <label>Fecha de Nacimiento</label>
+                  <input
+                    type="date"
+                    name="fechaDeNacimiento"
+                    value={formData.fechaDeNacimiento}
+                    onChange={handleInputChange}
+                  />
+                </div>
+              </div>
+
+              <div className="form-row">
+                <div className="form-group checkbox">
+                  <label>
+                    <input
+                      type="checkbox"
+                      name="haciendoMusculacion"
+                      checked={formData.haciendoMusculacion}
+                      onChange={handleInputChange}
+                    />
+                    Haciendo Musculación
+                  </label>
+                </div>
+                <div className="form-group checkbox">
+                  <label>
+                    <input
+                      type="checkbox"
+                      name="esDeportistaActivo"
+                      checked={formData.esDeportistaActivo}
+                      onChange={handleInputChange}
+                    />
+                    Deportista Activo
+                  </label>
+                </div>
+              </div>
+
+              <div className="modal-footer">
+                <button
+                  type="button"
+                  className="btn-cancel"
+                  onClick={() => setShowModal(false)}
+                >
+                  Cancelar
+                </button>
+                <button
+                  type="submit"
+                  className="btn-submit"
+                  disabled={submitting}
+                >
+                  {submitting ? 'Creando...' : 'Crear Usuario'}
+                </button>
+              </div>
+            </form>
+          </motion.div>
+        </div>
+      )}
     </motion.div>
   );
 };

@@ -67,13 +67,12 @@ export const AuthProvider = ({ children }) => {
 
   const register = async (formData) => {
     // Mapear campos del formulario al UsuarioExternoDTO del backend
-    const [nombre, ...apellidoParts] = formData.fullName.trim().split(' ');
-    const apellido = apellidoParts.join(' ') || '';
-
+    // formData.fullName es el nombre del usuario
+    // formData.lastName es el apellido del usuario
     const usuarioDTO = {
       id: parseInt(formData.document),
-      nombre,
-      apellido,
+      nombre: formData.fullName.trim(),
+      apellido: formData.lastName.trim(),
       telefono: formData.phone,
       tipoDeDoc: 'CC',
       fechaDeNacimiento: formData.birthDate,
