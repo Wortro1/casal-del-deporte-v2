@@ -1,0 +1,37 @@
+import React from 'react';
+import { Link } from 'react-router-dom';
+import '../styles/navBar.css';
+
+const NavBar = () => {
+  const navLinks = [
+    { name: 'Inicio', path: '#inicio' },
+    { name: 'Servicios', path: '#servicios' },
+    { name: 'Sobre nosotros', path: '#nosotros' }
+  ];
+
+  const brandName = 'Casa del';
+  const brandHighlight = 'Deporte';
+
+  return (
+    <nav className="navBarContainer">
+      <div className="navBarLogo">
+        {brandName} <span className="logoHighlight">{brandHighlight}</span>
+      </div>
+      
+      <ul className="navBarMenu">
+        {navLinks.map((linkItem) => (
+          <li key={linkItem.name}>
+            <a href={linkItem.path}>{linkItem.name}</a>
+          </li>
+        ))}
+      </ul>
+
+      <div className="navBarActions">
+        <Link to="/login/usuario" className="btnLoginNav">Ingresar</Link>
+        <Link to="/registro" className="btnRegisterNav">Regístrate</Link>
+      </div>
+    </nav>
+  );
+};
+
+export default NavBar;

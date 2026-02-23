@@ -1,0 +1,461 @@
+/* =============================================
+   REGISTER CONTAINER & CARD
+   ============================================= */
+.register-container {
+  min-height: 100vh;
+  background-color: #000000;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 2rem;
+  position: relative;
+  overflow-y: auto;
+  padding-top: 3rem;
+}
+
+.register-bg-grid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image:
+    linear-gradient(rgba(69, 255, 202, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(69, 255, 202, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+  pointer-events: none;
+}
+
+.register-card {
+  background: rgba(15, 15, 20, 0.95);
+  border: 2px solid #45ffca;
+  border-radius: 15px;
+  padding: 3rem;
+  width: 100%;
+  max-width: 700px;
+  box-shadow: 0 0 30px rgba(69, 255, 202, 0.1),
+              0 0 60px rgba(69, 255, 202, 0.05);
+  position: relative;
+  z-index: 10;
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.register-card.success-card {
+  max-width: 450px;
+  border-color: #45ffca;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =============================================
+   HEADER
+   ============================================= */
+.register-header {
+  margin-bottom: 2.5rem;
+  position: relative;
+}
+
+.btn-back {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1rem;
+  background: transparent;
+  border: 1px solid rgba(69, 255, 202, 0.3);
+  color: #45ffca;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  margin-bottom: 1.5rem;
+}
+
+.btn-back:hover {
+  border-color: #45ffca;
+  background: rgba(69, 255, 202, 0.1);
+}
+
+.register-title {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: 900;
+  color: #ffffff;
+  letter-spacing: -0.5px;
+}
+
+/* =============================================
+   FORM STRUCTURE
+   ============================================= */
+.register-form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.form-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.section-title {
+  margin: 0;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #ffffff;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #45ffca;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* =============================================
+   FORM GRID (2 COLUMNAS)
+   ============================================= */
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.form-label {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.form-input {
+  padding: 0.85rem 1rem;
+  background-color: rgba(31, 41, 55, 0.6);
+  border: 1.5px solid rgba(69, 255, 202, 0.3);
+  border-radius: 8px;
+  color: #ffffff;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  font-family: inherit;
+  font-weight: 500;
+  box-sizing: border-box;
+}
+
+.form-input::placeholder {
+  color: #9ca3af;
+  opacity: 0.8;
+}
+
+.form-input:hover {
+  border-color: rgba(69, 255, 202, 0.5);
+}
+
+.form-input:focus {
+  outline: none;
+  background-color: rgba(31, 41, 55, 0.95);
+  border-color: #45ffca;
+  box-shadow: 0 0 15px rgba(69, 255, 202, 0.3), inset 0 0 10px rgba(69, 255, 202, 0.05);
+}
+
+.form-input:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  background-color: rgba(31, 41, 55, 0.4);
+  border-color: rgba(69, 255, 202, 0.15);
+}
+
+.form-input.error {
+  border-color: #ff6b6b;
+  background-color: rgba(127, 29, 29, 0.2);
+}
+
+.form-input.error:focus {
+  box-shadow: 0 0 15px rgba(255, 107, 107, 0.3), inset 0 0 10px rgba(255, 107, 107, 0.05);
+}
+
+.error-text {
+  font-size: 0.85rem;
+  color: #ff9999;
+  margin-top: 0.25rem;
+}
+
+/* Input de fecha específico */
+input[type="date"],
+input[type="tel"],
+input[type="text"],
+input[type="email"] {
+  color-scheme: dark;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+  cursor: pointer;
+}
+
+/* =============================================
+   SWITCHES (RADIX UI)
+   ============================================= */
+.switches-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.switch-group {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  background: rgba(69, 255, 202, 0.05);
+  border: 1px solid rgba(69, 255, 202, 0.2);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.switch-group:hover {
+  background: rgba(69, 255, 202, 0.08);
+  border-color: rgba(69, 255, 202, 0.3);
+}
+
+.switch-label {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+/* Radix UI Switch Styles */
+.switch-root {
+  width: 50px;
+  height: 28px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 9999px;
+  padding: 2px;
+  cursor: pointer;
+  border: 1px solid rgba(69, 255, 202, 0.3);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.switch-root[data-state="checked"] {
+  background-color: #45ffca;
+  border-color: #45ffca;
+}
+
+.switch-root[data-state="unchecked"] {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Thumb (píldora que se mueve) */
+[data-radix-switch-thumb] {
+  display: block;
+  width: 24px;
+  height: 24px;
+  background-color: #ffffff;
+  border-radius: 9999px;
+  transition: transform 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.switch-root[data-state="unchecked"] [data-radix-switch-thumb] {
+  transform: translateX(0);
+}
+
+.switch-root[data-state="checked"] [data-radix-switch-thumb] {
+  transform: translateX(22px);
+}
+
+/* =============================================
+   FORM ACTIONS
+   ============================================= */
+.form-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.btn-cancel {
+  flex: 1;
+  padding: 0.95rem 1.5rem;
+  background: transparent;
+  border: 1.5px solid rgba(255, 255, 255, 0.2);
+  color: #cccccc;
+  font-size: 1rem;
+  font-weight: 700;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.btn-cancel:hover {
+  border-color: #ffffff;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.btn-submit {
+  flex: 1;
+  padding: 0.95rem 1.5rem;
+  background: transparent;
+  border: 2px solid #45ffca;
+  color: #45ffca;
+  font-size: 1rem;
+  font-weight: 700;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.btn-submit:hover {
+  background: #45ffca;
+  color: #000000;
+  box-shadow: 0 0 20px rgba(69, 255, 202, 0.6),
+              0 0 40px rgba(69, 255, 202, 0.3);
+  transform: translateY(-2px);
+}
+
+.btn-submit:active {
+  transform: translateY(0);
+}
+
+/* =============================================
+   SUCCESS MESSAGE
+   ============================================= */
+.success-message {
+  text-align: center;
+  padding: 2rem;
+  animation: slideInUp 0.6s ease-out;
+}
+
+.success-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 1.5rem;
+  background: rgba(69, 255, 202, 0.1);
+  border: 2px solid #45ffca;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  color: #45ffca;
+  font-weight: bold;
+  animation: scaleIn 0.5s ease-out;
+}
+
+.success-message h2 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.8rem;
+  color: #45ffca;
+  font-weight: 700;
+}
+
+.success-message p {
+  margin: 0.5rem 0;
+  color: #cccccc;
+  font-size: 0.95rem;
+}
+
+.redirect-text {
+  color: #9ca3af;
+  font-size: 0.85rem;
+  margin-top: 1rem !important;
+  font-style: italic;
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =============================================
+   RESPONSIVE
+   ============================================= */
+@media (max-width: 768px) {
+  .register-card {
+    padding: 2rem;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .register-title {
+    font-size: 1.5rem;
+  }
+
+  .form-section {
+    gap: 1.25rem;
+  }
+
+  .form-actions {
+    flex-direction: column;
+  }
+
+  .btn-cancel,
+  .btn-submit {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .register-container {
+    padding: 1rem;
+  }
+
+  .register-card {
+    padding: 1.5rem;
+    border-radius: 12px;
+  }
+
+  .register-title {
+    font-size: 1.3rem;
+  }
+
+  .section-title {
+    font-size: 1.1rem;
+  }
+
+  .form-input,
+  .form-label {
+    font-size: 0.9rem;
+  }
+
+  .switch-group {
+    padding: 0.8rem;
+  }
+}

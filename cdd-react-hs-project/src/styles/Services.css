@@ -1,0 +1,92 @@
+/* Styles to ensure the services section lays out as a responsive grid
+   This adds grid behavior even when Tailwind isn't available. */
+#servicios {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+  background: #0a0a0a;
+}
+
+#servicios .max-w-7xl {
+  max-width: 1120px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+/* Title styling to match provided design (keeps a moderate size on all viewports)
+   This makes the heading look like the first screenshot rather than extremely large. */
+#servicios h2 {
+  font-size: 2.75rem; /* ~44px */
+  line-height: 1;
+  font-weight: 800;
+  color: #ffffff;
+  text-align: center;
+  margin-bottom: 0.5rem;
+  margin-top: 0;
+}
+#servicios h2 span {
+  color: #45ffca;
+}
+
+/* small decorative underline centered like the design */
+.services-underline {
+  width: 6rem;
+  height: 4px;
+  background: #45ffca;
+  margin: 0.75rem auto 2.25rem auto;
+  border-radius: 2px;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .services-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Card tweaks to match previous look */
+.service-card {
+  background: rgba(17,24,39,0.5);
+  border-radius: 0.75rem;
+  overflow: hidden;
+  border: 2px solid #45ffca;
+  transition: transform 0.25s ease, box-shadow 0.2s ease;
+  display: flex;
+  flex-direction: column;
+}
+.service-card:hover { transform: scale(1.03); }
+.service-img-wrap { overflow: hidden; width: 100%; aspect-ratio: 4/3; }
+.service-img { width:100%; height:100%; object-fit:cover; display:block }
+.service-body { padding: 0; margin-top: auto }
+
+/* Footer area for card title to match screenshot */
+.service-body {
+  background: #071522; /* dark strip behind the title */
+  padding: 1.25rem 1.5rem;
+  border-bottom-left-radius: 0.75rem;
+  border-bottom-right-radius: 0.75rem;
+}
+.service-body h3 {
+  margin: 0;
+  color: #ffffff;
+  font-size: 1.25rem;
+  font-weight: 800;
+}
+
+/* Slightly reduce card scale on very large screens to avoid huge visuals */
+@media (min-width: 1400px) {
+  #servicios h2 { font-size: 3rem; }
+  .service-img-wrap { aspect-ratio: 16/10; }
+}
