@@ -22,7 +22,7 @@ export default function Services() {
               />
             </div>
             <div className="p-6 service-body">
-              <h3 className="text-xl font-bold">Ejercicio Saludable</h3>
+              <h3 className="text-xl font-bold">Entrenamientos Musculares</h3>
             </div>
           </div>
 
@@ -37,7 +37,7 @@ export default function Services() {
               />
             </div>
             <div className="p-6 service-body">
-              <h3 className="text-xl font-bold">Ejercicio Saludable</h3>
+              <h3 className="text-xl font-bold">Levantamiento de Pesas</h3>
             </div>
           </div>
 
@@ -52,7 +52,7 @@ export default function Services() {
               />
             </div>
             <div className="p-6 service-body">
-              <h3 className="text-xl font-bold">Ejercicio Saludable</h3>
+              <h3 className="text-xl font-bold">Entrenamiento Cardiovascular</h3>
             </div>
           </div>
 
@@ -67,7 +67,7 @@ export default function Services() {
               />
             </div>
             <div className="p-6 service-body">
-              <h3 className="text-xl font-bold">Ejercicio Saludable</h3>
+              <h3 className="text-xl font-bold">Entrenamiento de Fuerza</h3>
             </div>
           </div>
         </div>

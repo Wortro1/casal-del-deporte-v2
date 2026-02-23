@@ -1,5 +1,7 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
+import { useAuth } from './context/AuthContext'
 import NavBar from './components/navBar'
+import UserNavBar from './components/UserNavBar'
 import Services from './components/Services'
 import Footer from './components/Footer'
 import Hero from './pages/layouts/Hero'
@@ -16,9 +18,10 @@ import './styles/App.css'
 
 // Componente para la página principal
 function HomePage() {
+  const { isAuthenticated } = useAuth();
   return (
     <>
-      <NavBar />
+      {isAuthenticated ? <UserNavBar /> : <NavBar />}
       <Hero />
       <Services />
       <WhyUs />
