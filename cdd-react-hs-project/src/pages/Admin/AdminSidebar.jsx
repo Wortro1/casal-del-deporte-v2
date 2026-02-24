@@ -24,7 +24,7 @@ const AdminSidebar = ({ isOpen, currentSection, onSectionChange }) => {
   return (
     <aside className={`admin-sidebar ${isOpen ? 'open' : 'closed'}`}>
       <div className="sidebar-header">
-        <h1 className="sidebar-logo">Casa del<span className="logo-highlight">Deporte</span></h1>
+        <h1 className="sidebar-logo">Casa del <span className="logo-highlight">Deporte</span></h1>
         <p className="sidebar-subtitle">Panel de Administración</p>
       </div>
 

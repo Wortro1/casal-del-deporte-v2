@@ -1,8 +1,11 @@
 import React from 'react';
-import { X } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+import { LogOut, Home } from 'lucide-react';
 import '../../styles/Admin.css';
 
 const AdminTopBar = ({ sidebarOpen, onSidebarToggle, currentSection, onLogout }) => {
+  const navigate = useNavigate();
+
   const getSectionTitle = () => {
     const titles = {
       usuarios: 'Usuarios',
@@ -21,9 +24,22 @@ const AdminTopBar = ({ sidebarOpen, onSidebarToggle, currentSection, onLogout })
       
       <div className="topbar-section-title">{getSectionTitle()}</div>
       
-      <button className="topbar-close" onClick={onLogout}>
-        <X size={24} />
-      </button>
+      <div className="topbar-actions">
+        <button 
+          className="topbar-home" 
+          onClick={() => navigate('/')}
+          title="Ir a inicio"
+        >
+          <Home size={24} />
+        </button>
+        <button 
+          className="topbar-close" 
+          onClick={onLogout}
+          title="Cerrar sesión"
+        >
+          <LogOut size={24} />
+        </button>
+      </div>
     </div>
   );
 };

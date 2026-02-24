@@ -181,10 +181,18 @@
   text-transform: capitalize;
 }
 
+.topbar-actions {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.topbar-home,
 .topbar-close {
   background: transparent;
   border: none;
-  color: #cccccc;
+  color: #45ffca;
   cursor: pointer;
   padding: 0.5rem;
   display: flex;
@@ -195,9 +203,10 @@
   flex-shrink: 0;
 }
 
+.topbar-home:hover,
 .topbar-close:hover {
-  color: #45ffca;
-  background: rgba(69, 255, 202, 0.1);
+  color: #ffffff;
+  background: rgba(69, 255, 202, 0.2);
 }
 
 .topbar-toggle {
