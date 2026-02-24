@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-    baseURL: '/gym/api',
+    baseURL: `${import.meta.env.VITE_API_URL}/gym/api`,
     headers: {
         'Content-Type': 'application/json',
     },
